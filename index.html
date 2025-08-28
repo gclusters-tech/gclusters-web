@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>Galaxy Clusters | Intro</title>
+	<title>Galaxy Clusters</title>
 
 	<!-- Favicon -->
 	<link rel="icon" href="/static/icons/favicon.ico" sizes="any">
@@ -68,7 +68,7 @@
 		</div>
 
 		<!-- Font & Language & Theme Switchers -->
-		<div class="absolute right-4 flex items-center gap-3">
+		<div class="absolute right-4 items-center gap-3" id="desktop-controls" style="display: flex;">
 			<!-- Theme Switcher -->
 			<button id="theme-toggle"
 				class="px-3 py-1 text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-all duration-200 flex items-center gap-1">
@@ -118,7 +118,69 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Mobile Menu Button and Its Setup -->
+		<button id="mobile-menu-btn"
+			class="absolute right-4 p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+			style="display: none;">
+			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<circle cx="12" cy="12" r="1" />
+				<circle cx="12" cy="5" r="1" />
+				<circle cx="12" cy="19" r="1" />
+			</svg>
+		</button>
 	</header>
+
+	<div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+		style="transition: opacity 0.3s ease;"></div>
+
+	<div id="mobile-menu"
+		class="fixed top-0 right-0 h-full w-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+		<div class="flex flex-col h-full">
+			<div class="flex items-center justify-center p-6 border-b border-gray-200 relative">
+				<h3 class="text-lg font-semibold text-gray-900">Settings</h3>
+				<button id="mobile-menu-close"
+					class="absolute right-4 p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+					aria-label="Close settings">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+
+			<div class="flex-1 overflow-y-auto p-6 space-y-6">
+				<div class="space-y-3">
+					<label class="text-sm font-medium text-gray-700">Theme</label>
+					<div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+						<div class="flex items-center gap-3">
+							<svg id="mobile-theme-icon" class="w-5 h-5 text-indigo-600" fill="none"
+								stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+								<path id="mobile-sun-icon" stroke-linecap="round" stroke-linejoin="round"
+									d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+								<path id="mobile-moon-icon" stroke-linecap="round" stroke-linejoin="round"
+									d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+									style="display: none;" />
+							</svg>
+							<span id="mobile-theme-text" class="text-gray-800">Light</span>
+						</div>
+						<button id="mobile-theme-toggle"
+							class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+							<span id="mobile-theme-switch"
+								class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1"></span>
+						</button>
+					</div>
+				</div>
+
+				<div class="space-y-3">
+					<label class="text-sm font-medium text-gray-700">Language</label>
+					<div class="space-y-2" id="mobile-language-options">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<main class="flex-1 flex flex-col items-center justify-center px-4">
 	</main>
 
@@ -146,13 +208,17 @@
 			const LANGUAGE_NAMES_FULL = {
 				'en': 'English',
 				'ru': 'Русский',
+				'debugLang': 'Debug Lang',
 			};
 
 			const LANGUAGE_NAMES_SHORT = {
 				'en': 'EN',
 				'ru': 'RU',
+				'debugLang': 'DL',
 			};
 
+			window.LANGUAGE_NAMES_FULL = LANGUAGE_NAMES_FULL;
+			window.LANGUAGE_NAMES_SHORT = LANGUAGE_NAMES_SHORT;
 
 			const initializeLanguage = () => {
 				const currentLang = window.getCurrentLanguage();
@@ -195,7 +261,7 @@
 					if (index === 0) button.classList.add('rounded-t-lg');
 					if (index === languages.length - 1) button.classList.add('rounded-b-lg');
 
-					const langName = LANGUAGE_NAMES_FULL[lang] || lang.toUpperCase();
+					const langName = LANGUAGE_NAMES_FULL[lang];
 					button.textContent = langName;
 
 					button.addEventListener('click', (e) => {
@@ -236,9 +302,11 @@
 			const updateLanguageButtons = (lang) => {
 				const currentLangDisplay = document.getElementById('current-lang');
 				if (currentLangDisplay) {
-					currentLangDisplay.textContent = LANGUAGE_NAMES_SHORT[lang] || lang.toUpperCase();
+					currentLangDisplay.textContent = LANGUAGE_NAMES_FULL[lang];
 				}
 			};
+			window.updateLanguageButtons = updateLanguageButtons;
+			window.populateLanguageDropdown = populateLanguageDropdown;
 
 			const updatePageTexts = (lang) => {
 				const headerTitle = document.querySelector('#header-title .full-text');
@@ -264,6 +332,7 @@
 					}
 				}
 			};
+			window.updatePageTexts = updatePageTexts;
 
 			if (document.readyState === 'loading') {
 				document.addEventListener('DOMContentLoaded', initializeLanguage);
@@ -425,6 +494,10 @@
 				document.documentElement.setAttribute('data-theme', newTheme);
 				localStorage.setItem('theme', newTheme);
 				updateThemeButton(newTheme);
+
+				if (typeof window.syncMobileThemeUI === 'function') {
+					try { window.syncMobileThemeUI(newTheme); } catch (e) { }
+				}
 			}
 
 			function updateThemeButton(theme) {
@@ -444,10 +517,158 @@
 			}
 
 			initTheme();
+			window.updateThemeButton = updateThemeButton;
+			window.toggleTheme = toggleTheme;
 
 			document.addEventListener('DOMContentLoaded', () => {
 				document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
 			});
+		})();
+
+		(() => {
+			if (window.__gclusters_mobile_initialized) return;
+			window.__gclusters_mobile_initialized = true;
+
+			let isMenuOpen = false;
+
+			const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+			const mobileMenu = document.getElementById('mobile-menu');
+			const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+			const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+			const openMenu = () => {
+				if (isMenuOpen) return;
+				isMenuOpen = true;
+				mobileMenuOverlay.classList.remove('hidden');
+				mobileMenu.classList.remove('translate-x-full');
+				document.body.style.overflow = 'hidden';
+				setTimeout(() => mobileMenuOverlay.style.opacity = '1', 10);
+			};
+
+			const closeMenu = () => {
+				if (!isMenuOpen) return;
+				isMenuOpen = false;
+				mobileMenu.classList.add('translate-x-full');
+				mobileMenuOverlay.style.opacity = '0';
+				document.body.style.overflow = '';
+				setTimeout(() => mobileMenuOverlay.classList.add('hidden'), 300);
+			};
+
+			const populateMobileOptions = () => {
+				const languageContainer = document.getElementById('mobile-language-options');
+				if (!languageContainer || !window.SITE_TEXTS) return;
+
+				languageContainer.innerHTML = '';
+				const currentLang = window.getCurrentLanguage();
+				const NAMES = window.LANGUAGE_NAMES_FULL;
+
+				Object.keys(window.SITE_TEXTS).forEach(lang => {
+					const isSelected = lang === currentLang;
+					const option = document.createElement('button');
+					option.className = `w-full flex items-center justify-between p-3 text-left bg-gray-50 hover:bg-blue-50 rounded-lg transition-colors ${isSelected ? 'bg-blue-100 border-2 border-blue-300' : ''}`;
+					option.innerHTML = `
+						<div class="flex items-center gap-3"><span class="text-gray-800">${NAMES[lang]}</span></div>
+						${isSelected ? '<svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>' : ''}
+					`;
+
+					option.addEventListener('click', () => {
+						document.body.style.opacity = '0.7';
+						setTimeout(() => {
+							window.setLanguage(lang);
+							if (typeof window.updateLanguageButtons === 'function') window.updateLanguageButtons(lang);
+							if (typeof window.updatePageTexts === 'function') window.updatePageTexts(lang);
+							document.documentElement.setAttribute('lang', lang);
+							if (window.spaNavigator) {
+								const currentPage = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'home';
+								window.spaNavigator.loadPageContent(currentPage);
+							}
+							populateMobileOptions();
+							if (typeof closeMenu === 'function') closeMenu();
+							document.body.style.opacity = '1';
+						}, 300);
+					});
+					languageContainer.appendChild(option);
+				});
+			};
+
+			const initMobileTheme = () => {
+				const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+				const mobileThemeSwitch = document.getElementById('mobile-theme-switch');
+				const mobileThemeText = document.getElementById('mobile-theme-text');
+
+				const syncMobileThemeUI = (theme) => {
+					if (theme === 'dark') {
+						if (mobileThemeText) mobileThemeText.innerHTML = 'Dark<sup style="color: red; font-style: italic; font-size: 0.7em;">beta</sup>';
+						if (mobileThemeSwitch) {
+							mobileThemeSwitch.classList.remove('translate-x-1');
+							mobileThemeSwitch.classList.add('translate-x-6');
+						}
+					} else {
+						if (mobileThemeText) mobileThemeText.textContent = 'Light';
+						if (mobileThemeSwitch) {
+							mobileThemeSwitch.classList.remove('translate-x-6');
+							mobileThemeSwitch.classList.add('translate-x-1');
+						}
+					}
+				};
+
+				syncMobileThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
+				window.syncMobileThemeUI = syncMobileThemeUI;
+
+				mobileThemeToggle?.addEventListener('click', () => {
+					if (typeof window.toggleTheme === 'function') {
+						window.toggleTheme();
+						syncMobileThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
+					} else {
+						const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+						const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+						document.documentElement.setAttribute('data-theme', newTheme);
+						localStorage.setItem('theme', newTheme);
+						syncMobileThemeUI(newTheme);
+					}
+				});
+			};
+
+			mobileMenuBtn?.addEventListener('click', openMenu);
+			mobileMenuClose?.addEventListener('click', closeMenu);
+			mobileMenuOverlay?.addEventListener('click', closeMenu);
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && isMenuOpen) closeMenu();
+			});
+
+			const initMobileMenu = () => { populateMobileOptions(); initMobileTheme(); };
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initMobileMenu);
+			} else {
+				initMobileMenu();
+			}
+
+			window.addEventListener('languageChanged', populateMobileOptions);
+
+			const mq = window.matchMedia('(min-width: 1174px)');
+			const updateForQuery = (m) => {
+				const desktopControls = document.getElementById('desktop-controls');
+				const fullText = document.querySelector('#header-title .full-text');
+				const mobileShort = document.querySelector('#header-title .mobile-short');
+				const isDesktop = m.matches;
+				if (!isDesktop) {
+					if (desktopControls) desktopControls.style.display = 'none';
+					if (mobileMenuBtn) mobileMenuBtn.style.display = 'block';
+					if (fullText) fullText.style.display = 'none';
+					if (mobileShort) mobileShort.style.display = 'inline';
+				} else {
+					if (desktopControls) desktopControls.style.display = 'flex';
+					if (mobileMenuBtn) mobileMenuBtn.style.display = 'none';
+					if (fullText) fullText.style.display = 'inline';
+					if (mobileShort) mobileShort.style.display = 'none';
+					if (isMenuOpen) closeMenu();
+				}
+			};
+
+			updateForQuery(mq);
+			if (typeof mq.addEventListener === 'function') mq.addEventListener('change', updateForQuery);
+			else if (typeof mq.addListener === 'function') mq.addListener(updateForQuery);
 		})();
 	</script>
 </body>

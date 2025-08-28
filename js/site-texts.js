@@ -61,14 +61,14 @@ window.SITE_TEXTS = {
 
         dataSources: "External Data Sources",
         dataSourcesDescription: "Our system integrates with the astronomical databases to provide comprehensive and up-to-date information:",
-        
+
         // Data Sources Column Headers
         astronomicalCatalogsHeader: "Astronomical Catalogs",
         publicationDatabasesHeader: "Publication Databases",
 
         simbadDescription: "Astronomical object database with identifiers, basic measurements, and bibliography",
         vizierDescription: "Access to astronomical catalogs including Abell, Planck, ROSAT, and other cluster catalogs",
-        arxivDescription: "Open-access repository of electronic preprints for astronomy and astrophysics papers", 
+        arxivDescription: "Open-access repository of electronic preprints for astronomy and astrophysics papers",
         adsDescription: "NASA Astrophysics Data System (ADS) for astronomical literature and data",
 
 
@@ -296,7 +296,7 @@ window.SITE_TEXTS = {
         adsErrorRefresh: "Error refreshing search",
         adsFound: "Found",
         adsArticle: "article",
-        adsArticles: "articles", 
+        adsArticles: "articles",
         adsShowing: "showing",
         adsNoTitle: "No title",
         adsUnknown: "Unknown",
@@ -337,12 +337,12 @@ window.SITE_TEXTS = {
         chatCompleted: "completed",
         chatSearchFailed: "search failed",
         chatSimbadCompleted: "SIMBAD completed",
-        chatVizierCompleted: "VizieR completed", 
+        chatVizierCompleted: "VizieR completed",
         chatAdsCompleted: "ADS completed",
         chatArxivCompleted: "arXiv completed",
         chatSimbadFailed: "SIMBAD search failed",
         chatVizierFailed: "VizieR search failed",
-        chatAdsFailed: "ADS search failed", 
+        chatAdsFailed: "ADS search failed",
         chatArxivFailed: "arXiv search failed",
 
         // SPA Navigator specific texts
@@ -353,7 +353,8 @@ window.SITE_TEXTS = {
         spaErrorTitle: "Error",
         spaPageLoadingError: "Page loading error",
         spaReloadPage: "Reload page"
-    }
+    },
+    debugLang: {}
 };
 
 window.getText = function (key, lang = 'en') {
