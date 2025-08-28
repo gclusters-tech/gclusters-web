@@ -19,12 +19,17 @@ main,
     display: none;
 }
 
-@media (max-width: 414px) {
-    #header-title .full-text {
-        display: none;
-    }
+html,
+body {
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+}
 
-    #header-title .mobile-short {
-        display: inline;
-    }
+#mobile-menu {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+}
+
+#mobile-menu-overlay {
+    touch-action: none;
 }
