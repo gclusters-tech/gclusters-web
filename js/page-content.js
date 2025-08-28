@@ -61,33 +61,6 @@ window.generatePageContent = function (page, lang = 'en') {
           <section class="max-w-4xl w-full mx-auto px-4">
             <h2 class="text-3xl font-semibold mb-6">${t.methodMainTitle}</h2>
             
-            <!-- Chat Bot Description -->
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg mb-8">
-              <h3 class="text-2xl font-semibold mb-4 text-blue-800">${t.chatBotTitle}</h3>
-              <p class="text-gray-700 mb-4">
-                ${t.chatBotDescription}
-              </p>
-              
-              <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-white rounded-lg p-4 shadow">
-                  <h4 class="font-semibold text-blue-700 mb-2">${t.inputFormats}</h4>
-                  <ul class="text-sm text-gray-600 space-y-1">
-                    <li>${t.inputObjectNames}</li>
-                    <li>${t.inputCoordinatesDeg}</li>
-                    <li>${t.inputCoordinatesHMS}</li>
-                  </ul>
-                </div>
-                <div class="bg-white rounded-lg p-4 shadow">
-                  <h4 class="font-semibold text-blue-700 mb-2">${t.outputData}</h4>
-                  <ul class="text-sm text-gray-600 space-y-1">
-                    <li>${t.outputObjectParams}</li>
-                    <li>${t.outputArticles}</li>
-                    <li>${t.outputCatalogs}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
             <!-- Data Sources -->
             <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
               <h3 class="text-2xl font-semibold mb-4 text-green-800">${t.dataSources}</h3>
@@ -95,41 +68,48 @@ window.generatePageContent = function (page, lang = 'en') {
                 ${t.dataSourcesDescription}
               </p>
               
-              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="border border-green-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-green-700 mb-2">${t.simbad}</h4>
-                  <p class="text-xs text-gray-600">
-                    ${t.simbadDescription}
-                  </p>
+              <div class="grid md:grid-cols-2 gap-8">
+                <!-- First Column: Primary Catalogs -->
+                <div class="bg-gradient-to-b from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
+                  <h4 class="text-lg font-bold text-green-800 mb-4 text-center border-b border-green-300 pb-2">${t.astronomicalCatalogsHeader}</h4>
+                  <div class="space-y-4">
+                    <a href="${t.simbadLink}" target="_blank" class="block bg-white border border-green-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-green-300 transition-all duration-200 transform hover:-translate-y-1">
+                      <h5 class="font-semibold text-green-700 mb-2">${t.simbad}</h5>
+                      <p class="text-xs text-gray-600">
+                        ${t.simbadDescription}
+                      </p>
+                    </a>
+                    <a href="${t.vizierLink}" target="_blank" class="block bg-white border border-green-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-green-300 transition-all duration-200 transform hover:-translate-y-1">
+                      <h5 class="font-semibold text-green-700 mb-2">${t.vizier}</h5>
+                      <p class="text-xs text-gray-600">
+                        ${t.vizierDescription}
+                      </p>
+                    </a>
+                  </div>
                 </div>
-                <div class="border border-green-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-green-700 mb-2">${t.vizier}</h4>
-                  <p class="text-xs text-gray-600">
-                    ${t.vizierDescription}
-                  </p>
-                </div>
-                <div class="border border-green-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-green-700 mb-2">${t.nasaAds}</h4>
-                  <p class="text-xs text-gray-600">
-                    ${t.nasaAdsDescription}
-                  </p>
-                </div>
-                <div class="border border-green-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-green-700 mb-2">${t.arxiv}</h4>
-                  <p class="text-xs text-gray-600">
-                    ${t.arxivDescription}
-                  </p>
-                </div>
-                <div class="border border-green-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-green-700 mb-2">${t.ads}</h4>
-                  <p class="text-xs text-gray-600">
-                    ${t.adsDescription}
-                  </p>
+                
+                <!-- Second Column: Publication Databases -->
+                <div class="bg-gradient-to-b from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+                  <h4 class="text-lg font-bold text-blue-800 mb-4 text-center border-b border-blue-300 pb-2">${t.publicationDatabasesHeader}</h4>
+                  <div class="space-y-4">
+                    <a href="${t.arxivAstroLink}" target="_blank" class="block bg-white border border-blue-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 transform hover:-translate-y-1">
+                      <h5 class="font-semibold text-blue-700 mb-2">${t.arxiv}</h5>
+                      <p class="text-xs text-gray-600">
+                        ${t.arxivDescription}
+                      </p>
+                    </a>
+                    <a href="${t.adsLink}" target="_blank" class="block bg-white border border-blue-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 transform hover:-translate-y-1">
+                      <h5 class="font-semibold text-blue-700 mb-2">${t.ads}</h5>
+                      <p class="text-xs text-gray-600">
+                        ${t.adsDescription}
+                      </p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Technical Implementation -->
+            <!-- Technical Implementation
             <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
               <h3 class="text-2xl font-semibold mb-4 text-purple-800">${t.technicalImplementation}</h3>
               
@@ -171,6 +151,7 @@ window.generatePageContent = function (page, lang = 'en') {
                 </div>
               </div>
             </div>
+            -->
 
             <!-- Research Workflow -->
             <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
@@ -239,8 +220,8 @@ window.generatePageContent = function (page, lang = 'en') {
               </div>
             </div>
 
-            <!-- Applications -->
-            <div class="bg-white rounded-lg p-6 shadow-lg">
+            <!-- Applications
+            <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
               <h3 class="text-2xl font-semibold mb-4 text-orange-800">${t.applicationsUseCases}</h3>
               
               <div class="grid md:grid-cols-2 gap-6">
@@ -262,6 +243,43 @@ window.generatePageContent = function (page, lang = 'en') {
                     <li>${t.errorHandling}</li>
                     <li>${t.modularArchitecture}</li>
                   </ul>
+                </div>
+              </div>
+            </div>
+            -->
+
+            <!-- Available Catalogs & Resources -->
+            <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
+              <h3 class="text-2xl font-semibold mb-6 text-center">${t.availableCatalogs}</h3>
+              
+              <!-- Sky Surveys & Tools -->
+              <div>
+                <h4 class="text-xl font-semibold mb-4 text-orange-800">${t.skySurveys}</h4>
+                <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+                  <a href="${t.aladinLink}" target="_blank" class="block p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <div class="font-semibold text-orange-700">Aladin Sky Atlas</div>
+                    <div class="text-xs text-gray-600 mt-1">${t.aladinDescription}</div>
+                  </a>
+                  <a href="${t.sdssLink}" target="_blank" class="block p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <div class="font-semibold text-orange-700">SDSS</div>
+                    <div class="text-xs text-gray-600 mt-1">${t.sdssFullDescription}</div>
+                  </a>
+                  <a href="${t.esoToolsLink}" target="_blank" class="block p-4 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200 hover:from-red-100 hover:to-red-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <div class="font-semibold text-red-700">ESO Tools</div>
+                    <div class="text-xs text-gray-600 mt-1">${t.esoToolsDescription}</div>
+                  </a>
+                  <a href="${t.sdssServerLink}" target="_blank" class="block p-4 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200 hover:from-red-100 hover:to-red-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <div class="font-semibold text-red-700">SDSS SkyServer</div>
+                    <div class="text-xs text-gray-600 mt-1">${t.sdssServerDescription}</div>
+                  </a>
+                  <a href="${t.gaiaLink}" target="_blank" class="block p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl border border-indigo-200 hover:from-indigo-100 hover:to-indigo-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <div class="font-semibold text-indigo-700">ESA Gaia</div>
+                    <div class="text-xs text-gray-600 mt-1">${t.gaiaDescription}</div>
+                  </a>
+                  <a href="${t.irsaLink}" target="_blank" class="block p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl border border-indigo-200 hover:from-indigo-100 hover:to-indigo-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <div class="font-semibold text-indigo-700">IRSA</div>
+                    <div class="text-xs text-gray-600 mt-1">${t.irsaDescription}</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -428,91 +446,73 @@ window.generatePageContent = function (page, lang = 'en') {
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                  <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">SV</span>
+                  <img src="https://studscience.hse.ru/mirror/pubs/share/direct/965580754.jpg" alt="${t.mlEngineerWebDeveloperName}" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-2">${t.mlEngineerWebDeveloperName}</h4>
+                  <p class="text-sm text-gray-600 mb-4">${t.mlEngineerWebDeveloper}</p>
+                  <div class="space-y-2">
+                    <a href="mailto:${t.mlEngineerWebDeveloperEmail}" class="flex items-center justify-center text-blue-600 hover:text-blue-800 text-sm">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                      ${t.mlEngineerWebDeveloperEmail}
+                    </a>
+                    <a href="${t.mlEngineerWebDeveloperGithub}" target="_blank" class="flex items-center justify-center text-gray-700 hover:text-gray-900 text-sm">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                      GitHub
+                    </a>
+                    <a href="${t.galaxyHackersLink}" target="_blank" class="flex items-center justify-center text-indigo-600 hover:text-indigo-800 text-sm">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                      </svg>
+                      ${t.galaxyHackersProject}
+                    </a>
                   </div>
-                  <h4 class="text-lg font-semibold text-gray-900 mb-2">Svetlana Voskresenskaya</h4>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
+                  <img src="https://studscience.hse.ru/mirror/pubs/share/direct/965580762.jpg" alt="${t.dataAnalystResearcherName}" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-2">${t.dataAnalystResearcherName}</h4>
+                  <p class="text-sm text-gray-600 mb-4">${t.dataAnalystResearcher}</p>
+                  <div class="space-y-2">
+                    <a href="mailto:${t.dataAnalystResearcherEmail}" class="flex items-center justify-center text-blue-600 hover:text-blue-800 text-sm">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                      ${t.dataAnalystResearcherEmail}
+                    </a>
+                    <a href="${t.dataAnalystResearcherGithub}" target="_blank" class="flex items-center justify-center text-gray-700 hover:text-gray-900 text-sm">
+                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                      GitHub
+                    </a>
+                    <a href="${t.galaxyHackersLink}" target="_blank" class="flex items-center justify-center text-indigo-600 hover:text-indigo-800 text-sm">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                      </svg>
+                      ${t.galaxyHackersProject}
+                    </a>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
+                  <img src="https://studscience.hse.ru/mirror/pubs/share/direct/965580742.jpg" alt="${t.astrophysicistTeamLeadName}" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-2">${t.astrophysicistTeamLeadName}</h4>
                   <p class="text-sm text-gray-600 mb-4">${t.astrophysicistTeamLead}</p>
                   <div class="space-y-2">
                     <a href="mailto:${t.svetlanaEmail}" class="flex items-center justify-center text-blue-600 hover:text-blue-800 text-sm">
                       <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                       </svg>
-                      ${t.svetlanaEmail}
+                      ${t.astrophysicistTeamLeadEmail}
                     </a>
-                    <a href="${t.svetlanaGithub}" target="_blank" class="flex items-center justify-center text-gray-700 hover:text-gray-900 text-sm">
+                    <a href="${t.astrophysicistTeamLeadGithub}" target="_blank" class="flex items-center justify-center text-gray-700 hover:text-gray-900 text-sm">
                       <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                       </svg>
                       GitHub
-                    </a>
-                    <a href="${t.mnrasLink}" target="_blank" class="flex items-center justify-center text-red-600 hover:text-red-800 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                      </svg>
-                      ${t.mnrasPublication}
-                    </a>
-                    <a href="${t.arxivLink}" target="_blank" class="flex items-center justify-center text-orange-600 hover:text-orange-800 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                      </svg>
-                      ${t.arxivPreprint}
-                    </a>
-                  </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                  <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">FN</span>
-                  </div>
-                  <h4 class="text-lg font-semibold text-gray-900 mb-2">Fomicheva Nadezhda</h4>
-                  <p class="text-sm text-gray-600 mb-4">${t.dataAnalystResearcher}</p>
-                  <div class="space-y-2">
-                    <a href="mailto:${t.nadezhdaEmail}" class="flex items-center justify-center text-blue-600 hover:text-blue-800 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                      </svg>
-                      ${t.nadezhdaEmail}
-                    </a>
-                    <a href="${t.nadezhdaGithub}" target="_blank" class="flex items-center justify-center text-gray-700 hover:text-gray-900 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                      </svg>
-                      GitHub
-                    </a>
-                    <a href="${t.galaxyHackersLink}" target="_blank" class="flex items-center justify-center text-indigo-600 hover:text-indigo-800 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                      </svg>
-                      ${t.galaxyHackersProject}
-                    </a>
-                  </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                  <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">PA</span>
-                  </div>
-                  <h4 class="text-lg font-semibold text-gray-900 mb-2">Pavlov Arkady</h4>
-                  <p class="text-sm text-gray-600 mb-4">${t.mlEngineerWebDeveloper}</p>
-                  <div class="space-y-2">
-                    <a href="mailto:${t.arkadyEmail}" class="flex items-center justify-center text-blue-600 hover:text-blue-800 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                      </svg>
-                      ${t.arkadyEmail}
-                    </a>
-                    <a href="${t.arkadyGithub}" target="_blank" class="flex items-center justify-center text-gray-700 hover:text-gray-900 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                      </svg>
-                      GitHub
-                    </a>
-                    <a href="${t.galaxyHackersLink}" target="_blank" class="flex items-center justify-center text-indigo-600 hover:text-indigo-800 text-sm">
-                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                      </svg>
-                      ${t.galaxyHackersProject}
                     </a>
                   </div>
                 </div>
@@ -546,90 +546,6 @@ window.generatePageContent = function (page, lang = 'en') {
                   </a>
                 </div>
               </div>
-              
-              <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1">
-                <h3 class="text-2xl font-semibold mb-6 text-center">${t.availableCatalogs}</h3>
-                
-                <div class="mb-8">
-                  <h4 class="text-xl font-semibold mb-4 text-blue-800">${t.astronomicalCatalogs}</h4>
-                  <div class="grid md:grid-cols-3 gap-4">
-                    <a href="${t.sdssClusterLink}" target="_blank" class="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border border-blue-200 hover:from-blue-100 hover:to-blue-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:scale-105">
-                      <span class="font-medium">SDSS Galaxy Cluster Catalog</span>
-                      <span class="text-sm text-blue-700 bg-blue-200 px-2 py-1 rounded-full">${t.sdssDescription}</span>
-                    </a>
-                    <a href="${t.planckLink}" target="_blank" class="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border border-green-200 hover:from-green-100 hover:to-green-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:scale-105">
-                      <span class="font-medium">Planck SZ Cluster Catalog</span>
-                      <span class="text-sm text-green-700 bg-green-200 px-2 py-1 rounded-full">${t.planckDescription}</span>
-                    </a>
-                    <a href="${t.rosatLink}" target="_blank" class="flex justify-between items-center p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border border-purple-200 hover:from-purple-100 hover:to-purple-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:scale-105">
-                      <span class="font-medium">ROSAT Faint Source Catalog</span>
-                      <span class="text-sm text-purple-700 bg-purple-200 px-2 py-1 rounded-full">${t.rosatDescription}</span>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- External Resources -->
-                <div class="mb-8">
-                  <h4 class="text-xl font-semibold mb-4 text-green-800">${t.externalResources}</h4>
-                  <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <a href="${t.simbadLink}" target="_blank" class="block p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200 hover:from-green-100 hover:to-green-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-green-700">${t.simbad}</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.simbadFullDescription}</div>
-                    </a>
-                    <a href="${t.vizierLink}" target="_blank" class="block p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200 hover:from-green-100 hover:to-green-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-green-700">${t.vizier}</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.vizierFullDescription}</div>
-                    </a>
-                    <a href="${t.adsLink}" target="_blank" class="block p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 hover:from-blue-100 hover:to-blue-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-blue-700">${t.ads}</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.adsFullDescription}</div>
-                    </a>
-                    <a href="${t.adsLink}" target="_blank" class="block p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 hover:from-blue-100 hover:to-blue-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-blue-700">${t.nasaAds}</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.nasaAdsFullDescription}</div>
-                    </a>
-                    <a href="${t.arxivAstroLink}" target="_blank" class="block p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200 hover:from-purple-100 hover:to-purple-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-purple-700">${t.arxiv} Astro-ph</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.arxivFullDescription}</div>
-                    </a>
-                    <a href="${t.heasarcLink}" target="_blank" class="block p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200 hover:from-purple-100 hover:to-purple-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-purple-700">HEASARC</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.heasarcDescription}</div>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Sky Surveys & Tools -->
-                <div>
-                  <h4 class="text-xl font-semibold mb-4 text-orange-800">${t.skySurveys}</h4>
-                  <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <a href="${t.aladinLink}" target="_blank" class="block p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-orange-700">Aladin Sky Atlas</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.aladinDescription}</div>
-                    </a>
-                    <a href="${t.sdssLink}" target="_blank" class="block p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-orange-700">SDSS</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.sdssFullDescription}</div>
-                    </a>
-                    <a href="${t.esoToolsLink}" target="_blank" class="block p-4 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200 hover:from-red-100 hover:to-red-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-red-700">ESO Tools</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.esoToolsDescription}</div>
-                    </a>
-                    <a href="${t.sdssServerLink}" target="_blank" class="block p-4 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200 hover:from-red-100 hover:to-red-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-red-700">SDSS SkyServer</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.sdssServerDescription}</div>
-                    </a>
-                    <a href="${t.gaiaLink}" target="_blank" class="block p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl border border-indigo-200 hover:from-indigo-100 hover:to-indigo-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-indigo-700">ESA Gaia</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.gaiaDescription}</div>
-                    </a>
-                    <a href="${t.irsaLink}" target="_blank" class="block p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl border border-indigo-200 hover:from-indigo-100 hover:to-indigo-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                      <div class="font-semibold text-indigo-700">IRSA</div>
-                      <div class="text-xs text-gray-600 mt-1">${t.irsaDescription}</div>
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
           </section>
         `
@@ -649,6 +565,33 @@ window.generatePageContent = function (page, lang = 'en') {
                 <p class="text-sm font-medium">
                   ${t.chatBotWarning}
                 </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Bot Description -->
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg mb-8">
+            <h3 class="text-2xl font-semibold mb-4 text-blue-800">${t.chatBotTitle}</h3>
+            <p class="text-gray-700 mb-4">
+              ${t.chatBotDescription}
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white rounded-lg p-4 shadow">
+                <h4 class="font-semibold text-blue-700 mb-2">${t.inputFormats}</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>${t.inputObjectNames}</li>
+                  <li>${t.inputCoordinatesDeg}</li>
+                  <li>${t.inputCoordinatesHMS}</li>
+                </ul>
+              </div>
+              <div class="bg-white rounded-lg p-4 shadow">
+                <h4 class="font-semibold text-blue-700 mb-2">${t.outputData}</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>${t.outputObjectParams}</li>
+                  <li>${t.outputArticles}</li>
+                  <li>${t.outputCatalogs}</li>
+                </ul>
               </div>
             </div>
           </div>
