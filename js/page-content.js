@@ -1,27 +1,27 @@
 window.generatePageContent = function (page, lang = 'en') {
-    if (!window.getText) {
-        console.warn('getText function not available, fallback to null');
-        return null;
-    }
+  if (!window.getText) {
+    console.warn('getText function not available, fallback to null');
+    return null;
+  }
 
-    const createSmartTextProxy = (lang) => {
-        return new Proxy({}, {
-            get: function (target, property) {
-                if (typeof property === 'string') {
-                    return window.getText(property, lang);
-                }
-                return target[property];
-            }
-        });
-    };
+  const createSmartTextProxy = (lang) => {
+    return new Proxy({}, {
+      get: function (target, property) {
+        if (typeof property === 'string') {
+          return window.getText(property, lang);
+        }
+        return target[property];
+      }
+    });
+  };
 
-    const t = createSmartTextProxy(lang);
+  const t = createSmartTextProxy(lang);
 
-    switch (page) {
-        case 'home':
-            return {
-                title: t.homePageTitle,
-                content: `
+  switch (page) {
+    case 'home':
+      return {
+        title: t.homePageTitle,
+        content: `
           <section class="max-w-2xl text-center">
             <h2 class="text-3xl font-semibold mb-4">${t.homeMainQuestion}</h2>
             <p class="mb-8 text-gray-700">
@@ -51,13 +51,13 @@ window.generatePageContent = function (page, lang = 'en') {
             </nav>
           </section>
         `
-            };
+      };
 
-        case 'method':
-            return {
-                title: t.methodPageTitle,
-                h1: t.methodHeading,
-                content: `
+    case 'method':
+      return {
+        title: t.methodPageTitle,
+        h1: t.methodHeading,
+        content: `
           <section class="max-w-4xl w-full mx-auto px-4">
             <h2 class="text-3xl font-semibold mb-6">${t.methodMainTitle}</h2>
             
@@ -285,13 +285,13 @@ window.generatePageContent = function (page, lang = 'en') {
             </div>
           </section>
         `
-            };
+      };
 
-        case 'contact':
-            return {
-                title: t.contactPageTitle,
-                h1: t.contactUs,
-                content: `
+    case 'contact':
+      return {
+        title: t.contactPageTitle,
+        h1: t.contactUs,
+        content: `
           <section class="max-w-4xl w-full">
             <h2 class="text-3xl font-semibold mb-8 text-center">${t.getInTouch}</h2>
 
@@ -385,13 +385,13 @@ window.generatePageContent = function (page, lang = 'en') {
             });
           </script>
         `
-            };
+      };
 
-        case 'articles':
-            return {
-                title: t.articlesPageTitle,
-                h1: t.articlesFullTitle,
-                content: `
+    case 'articles':
+      return {
+        title: t.articlesPageTitle,
+        h1: t.articlesFullTitle,
+        content: `
           <section class="max-w-4xl w-full mx-auto px-4">
             <h2 class="text-3xl font-semibold mb-6">${t.researchArticles}</h2>
             
@@ -431,13 +431,13 @@ window.generatePageContent = function (page, lang = 'en') {
           
           <script src="js/article-search.js"></script>
         `
-            };
+      };
 
-        case 'projects':
-            return {
-                title: t.projectsPageTitle,
-                h1: t.projectsFullTitle,
-                content: `
+    case 'projects':
+      return {
+        title: t.projectsPageTitle,
+        h1: t.projectsFullTitle,
+        content: `
           <section class="w-full max-w-7xl mx-auto px-4">
             <h2 class="text-4xl font-semibold mb-8 text-center">${t.teamProjects}</h2>
             
@@ -497,7 +497,7 @@ window.generatePageContent = function (page, lang = 'en') {
                   </div>
                 </div>
 
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
+                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center md:col-span-2 lg:col-span-1">
                   <img src="https://studscience.hse.ru/mirror/pubs/share/direct/965580742.jpg" alt="${t.astrophysicistTeamLeadName}" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
                   <h4 class="text-lg font-semibold text-gray-900 mb-2">${t.astrophysicistTeamLeadName}</h4>
                   <p class="text-sm text-gray-600 mb-4">${t.astrophysicistTeamLead}</p>
@@ -549,12 +549,12 @@ window.generatePageContent = function (page, lang = 'en') {
             </div>
           </section>
         `
-            };
+      };
 
-        case 'aladin-bot':
-            return {
-                title: t.aladinPageTitle,
-                content: `
+    case 'aladin-bot':
+      return {
+        title: t.aladinPageTitle,
+        content: `
           <!-- Chat Bot Status Warning -->
           <div class="max-w-7xl w-full mb-4">
             <div class="warning-banner">
@@ -856,13 +856,13 @@ window.generatePageContent = function (page, lang = 'en') {
             }, 1000);
           </script>
         `
-            };
+      };
 
-        default:
-            // 404 Page
-            return {
-                title: t.notFoundPageTitle,
-                content: `
+    default:
+      // 404 Page
+      return {
+        title: t.notFoundPageTitle,
+        content: `
           <section class="max-w-2xl text-center">
             <div class="mb-8">
               <div class="text-9xl font-bold text-blue-600 mb-4">404</div>
@@ -908,6 +908,6 @@ window.generatePageContent = function (page, lang = 'en') {
             </div>
           </section>
         `
-            };
-    }
+      };
+  }
 };
