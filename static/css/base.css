@@ -1,0 +1,30 @@
+body.loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+body.ready {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+main,
+#header-title,
+#back-btn span {
+    transition: opacity 0.2s ease-in-out;
+}
+
+#header-title .mobile-short {
+    display: none;
+}
+
+@media (max-width: 414px) {
+    #header-title .full-text {
+        display: none;
+    }
+
+    #header-title .mobile-short {
+        display: inline;
+    }
+}

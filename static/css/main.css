@@ -1,0 +1,14 @@
+@import url('./base.css');
+@import url('./themes.css');
+@import url('./components.css');
+@import url('./effects.css');
+@import url('./tailwind-overrides.css');
+
+body {
+    transition: font-family 0.3s ease;
+}
+
+.font-option:hover,
+.lang-option:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+}

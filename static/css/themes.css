@@ -1,0 +1,115 @@
+:root {
+    --bg-color: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --border-color: #e5e7eb;
+    --border-secondary: #d1d5db;
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-indigo: #6366f1;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --warning-bg: #fefce8;
+    --warning-border: #facc15;
+    --warning-text: #a16207;
+    --hover-bg: #f3f4f6;
+    --shadow-light: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --gradient-cosmic: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-space: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #7c2d12 100%);
+}
+
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --border-secondary: #475569;
+    --accent-blue: #60a5fa;
+    --accent-purple: #a78bfa;
+    --accent-indigo: #818cf8;
+    --accent-green: #34d399;
+    --accent-red: #f87171;
+    --warning-bg: #1e1b1b;
+    --warning-border: #d97706;
+    --warning-text: #fbbf24;
+    --hover-bg: #334155;
+    --shadow-light: 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.5);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+    --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+    --gradient-cosmic: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+    --gradient-space: linear-gradient(135deg, #0c1222 0%, #1e1b4b 50%, #581c87 100%);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease, font-family 0.3s ease;
+}
+
+header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+main {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+    color: var(--text-primary) !important;
+}
+
+main p,
+main li,
+main span,
+main div {
+    color: var(--text-secondary) !important;
+}
+
+main .text-xl,
+main .text-lg {
+    color: var(--text-primary) !important;
+}
+
+main a {
+    color: var(--accent-blue);
+}
+
+main a:hover {
+    color: var(--accent-indigo);
+}
+
+nav a {
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.warning-banner {
+    background-color: var(--warning-bg);
+    border-left: 4px solid var(--warning-border);
+    color: var(--warning-text);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+.warning-banner svg {
+    color: var(--warning-border);
+}
+
+nav a:hover {
+    color: var(--accent-indigo);
+    transform: translateY(-1px);
+}
