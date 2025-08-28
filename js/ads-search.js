@@ -748,8 +748,8 @@ class ADSSearch {
           </div>
           ${articles.length > 0 ? `<p class="text-sm text-blue-600 mt-1">
             ${this.sortOrder === 'citation_count desc'
-                    ? t.citationSort
-                    : t.dateSort
+                    ? t.adsCitationSort
+                    : t.adsDateSort
                 }
           </p>` : ''}
         </div>
