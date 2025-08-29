@@ -514,6 +514,14 @@ window.generatePageContent = function (page, lang = 'en') {
                       </svg>
                       GitHub
                     </a>
+                    <a href="${t.astrophysicistTeamLeadOrcidLink}" target="_blank" class="flex items-center justify-center text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 text-sm">
+                      <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" fill="currentColor" />
+                        <rect x="10.5" y="7" width="3" height="10" rx="1.2" fill="#fff" />
+                        <circle cx="12" cy="6" r="1.6" fill="#fff" />
+                      </svg>
+                      ORCID: ${t.astrophysicistTeamLeadOrcid}
+                    </a>
                   </div>
                 </div>
 

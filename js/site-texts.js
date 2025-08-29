@@ -166,6 +166,8 @@ window.SITE_TEXTS = {
         mlEngineerWebDeveloperName: "Arkady Pavlov",
 
         astrophysicistTeamLeadEmail: 'savoskresenskaya@edu.hse.ru',
+        astrophysicistTeamLeadOrcid: '0009-0000-9338-4047',
+        astrophysicistTeamLeadOrcidLink: 'https://orcid.org/0009-0000-9338-4047',
         dataScientistResearcherEmail: 'nvfomicheva@edu.hse.ru',
         mlEngineerWebDeveloperEmail: 'aspavlov@edu.hse.ru',
         astrophysicistTeamLeadNameGithub: 'https://github.com/svetlana-voskr/',
