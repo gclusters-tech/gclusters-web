@@ -162,14 +162,14 @@ window.SITE_TEXTS = {
         ads: "ADS",
 
         astrophysicistTeamLeadName: "Svetlana Voskresenskaia",
-        dataAnalystResearcherName: "Nadezhda Fomicheva",
+        dataScientistResearcherName: "Nadezhda Fomicheva",
         mlEngineerWebDeveloperName: "Arkady Pavlov",
 
         astrophysicistTeamLeadEmail: 'savoskresenskaya@edu.hse.ru',
-        dataAnalystResearcherEmail: 'nvfomicheva@edu.hse.ru',
+        dataScientistResearcherEmail: 'nvfomicheva@edu.hse.ru',
         mlEngineerWebDeveloperEmail: 'aspavlov@edu.hse.ru',
         astrophysicistTeamLeadNameGithub: 'https://github.com/svetlana-voskr/',
-        dataAnalystResearcherGithub: 'https://github.com/pelancha',
+        dataScientistResearcherGithub: 'https://github.com/pelancha',
         mlEngineerWebDeveloperGithub: 'https://github.com/hetrixq',
         galaxyHackersLink: 'https://github.com/pelancha/galaxyHackers',
         compactCatalogLink: 'https://cdsarc.cds.unistra.fr/viz-bin/cat/J/MNRAS/531/1998',
@@ -218,7 +218,7 @@ window.SITE_TEXTS = {
         skySurveys: "Sky Surveys & Observation Tools",
 
         astrophysicistTeamLead: "Astrophysicist & Team Lead",
-        dataAnalystResearcher: "Data Analyst & Researcher",
+        dataScientistResearcher: "Data Scientist & Researcher",
         mlEngineerWebDeveloper: "ML Engineer & Web Developer",
 
         galaxyHackersDescription: "DL-powered tool to classify galaxy clusters throughout space",
