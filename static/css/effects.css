@@ -26,6 +26,9 @@
 }
 
 [data-theme="dark"] .bg-gradient-to-r {
+    background: var(--gradient-cosmic) !important;
+}
+[data-theme="dark"] .bg-gradient-to-rg {
     background: var(--gradient-space) !important;
 }
 

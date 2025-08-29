@@ -43,7 +43,7 @@
     --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
     --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
     --gradient-cosmic: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
-    --gradient-space: linear-gradient(135deg, #0c1222 0%, #1e1b4b 50%, #581c87 100%);
+    --gradient-space: linear-gradient(135deg, #9f6521 0%, #9f7a1d 100%);
 }
 
 body {
@@ -73,14 +73,19 @@ main h6 {
 
 main p,
 main li,
-main span,
-main div {
+main span{
     color: var(--text-secondary) !important;
 }
 
 main .text-xl,
 main .text-lg {
     color: var(--text-primary) !important;
+}
+main .text-lg-b {
+    color: var(--accent-blue) !important;
+}
+main .text-lg-g {
+    color: var(--accent-green) !important;
 }
 
 main a {

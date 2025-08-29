@@ -71,16 +71,16 @@ window.generatePageContent = function (page, lang = 'en') {
               <div class="grid md:grid-cols-2 gap-8">
                 <!-- First Column: Primary Catalogs -->
                 <div class="bg-gradient-to-b from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
-                  <h4 class="text-lg font-bold text-green-800 mb-4 text-center border-b border-green-300 pb-2">${t.astronomicalCatalogsHeader}</h4>
+                  <h4 class="text-lg-g font-bold text-green-800 mb-4 text-center border-b border-green-300 pb-2">${t.astronomicalCatalogsHeader}</h4>
                   <div class="space-y-4">
                     <a href="${t.simbadLink}" target="_blank" class="block bg-white border border-green-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-green-300 transition-all duration-200 transform hover:-translate-y-1">
-                      <h5 class="font-semibold text-green-700 mb-2">${t.simbad}</h5>
+                      <h5 class="text-lg-g font-semibold text-green-700 mb-2">${t.simbad}</h5>
                       <p class="text-xs text-gray-600">
                         ${t.simbadDescription}
                       </p>
                     </a>
                     <a href="${t.vizierLink}" target="_blank" class="block bg-white border border-green-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-green-300 transition-all duration-200 transform hover:-translate-y-1">
-                      <h5 class="font-semibold text-green-700 mb-2">${t.vizier}</h5>
+                      <h5 class="text-lg-g font-semibold text-green-700 mb-2">${t.vizier}</h5>
                       <p class="text-xs text-gray-600">
                         ${t.vizierDescription}
                       </p>
@@ -90,7 +90,7 @@ window.generatePageContent = function (page, lang = 'en') {
                 
                 <!-- Second Column: Publication Databases -->
                 <div class="bg-gradient-to-b from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
-                  <h4 class="text-lg font-bold text-blue-800 mb-4 text-center border-b border-blue-300 pb-2">${t.publicationDatabasesHeader}</h4>
+                  <h4 class="text-lg-b font-bold text-blue-700 mb-4 text-center border-b border-blue-300 pb-2">${t.publicationDatabasesHeader}</h4>
                   <div class="space-y-4">
                     <a href="${t.arxivAstroLink}" target="_blank" class="block bg-white border border-blue-200 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 transform hover:-translate-y-1">
                       <h5 class="font-semibold text-blue-700 mb-2">${t.arxiv}</h5>
@@ -153,7 +153,7 @@ window.generatePageContent = function (page, lang = 'en') {
             </div>
             -->
 
-            <!-- Research Workflow -->
+            <!-- Research Workflow
             <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
               <h3 class="text-2xl font-semibold mb-4 text-indigo-800">${t.researchWorkflow}</h3>
               
@@ -219,7 +219,7 @@ window.generatePageContent = function (page, lang = 'en') {
                 </div>
               </div>
             </div>
-
+            -->
             <!-- Applications
             <div class="bg-white rounded-lg p-6 shadow-lg mb-8">
               <h3 class="text-2xl font-semibold mb-4 text-orange-800">${t.applicationsUseCases}</h3>
@@ -257,11 +257,11 @@ window.generatePageContent = function (page, lang = 'en') {
                 <h4 class="text-xl font-semibold mb-4 text-orange-800">${t.skySurveys}</h4>
                 <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
                   <a href="${t.aladinLink}" target="_blank" class="block p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <div class="font-semibold text-orange-700">Aladin Sky Atlas</div>
+                    <div class="font-semibold text-orange-500">Aladin Sky Atlas</div>
                     <div class="text-xs text-gray-600 mt-1">${t.aladinDescription}</div>
                   </a>
                   <a href="${t.sdssLink}" target="_blank" class="block p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl border border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <div class="font-semibold text-orange-700">SDSS</div>
+                    <div class="font-semibold text-orange-500">SDSS</div>
                     <div class="text-xs text-gray-600 mt-1">${t.sdssFullDescription}</div>
                   </a>
                   <a href="${t.esoToolsLink}" target="_blank" class="block p-4 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200 hover:from-red-100 hover:to-red-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
@@ -570,12 +570,29 @@ window.generatePageContent = function (page, lang = 'en') {
           </div>
 
           <!-- Chat Bot Description -->
-          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg mb-8">
-            <h3 class="text-2xl font-semibold mb-4 text-blue-800">${t.chatBotTitle}</h3>
-            <p class="text-gray-700 mb-4">
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 shadow-lg mb-8 max-w-7xl w-full">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <h3 class="text-2xl font-semibold mb-0 text-blue-800">${t.chatBotTitle}</h3>
+
+              <div class="w-full md:w-1/2 lg:w-1/2">
+                <div class="flex items-center gap-2 bg-white rounded-lg p-2">
+                  <input id="universal-search" 
+                         type="text" 
+                         placeholder="${t.unifiedSearchPlaceholder}"
+                         class="flex-1 px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                  <button id="search-button" 
+                          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-150 font-medium text-sm">
+                    ${t.search}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 mt-4">
               ${t.chatBotDescription}
             </p>
-            
+
             <div class="grid md:grid-cols-2 gap-4">
               <div class="bg-white rounded-lg p-4 shadow">
                 <h4 class="font-semibold text-blue-700 mb-2">${t.inputFormats}</h4>
@@ -610,16 +627,19 @@ window.generatePageContent = function (page, lang = 'en') {
               <!-- Chatbot Panel Section (Right) -->
               <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
                 <!-- Chatbot Header -->
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 flex items-center gap-3">
-                  <span class="text-2xl"></span>
-                  <div>
-                    <h3 class="text-lg font-semibold">${t.astronomicalSearchBot}</h3>
-                    <p class="text-sm text-blue-100">${t.astronomicalSearchBotSubtitle}</p>
+                <div class="bg-gradient-to-r from-blue-100 to-indigo-600 text-white p-4 flex flex-col md:flex-row items-center gap-3">
+                  <div class="flex items-center gap-3 w-full md:w-auto">
+                    <span class="text-2xl"></span>
+                    <div>
+                      <h3 class="text-lg font-semibold">${t.astronomicalSearchBot}</h3>
+                      <h5 class="text-sm text-blue-100">${t.astronomicalSearchBotSubtitle}</h5>
+                    </div>
                   </div>
+
                 </div>
                 
                 <!-- Chat Messages Area -->
-                <div id="chat-messages" class="p-4 overflow-y-auto bg-gradient-to-b from-gray-50 to-white space-y-3" style="height: 520px;">
+                <div id="chat-messages" class="p-4 overflow-y-auto bg-gradient-to-b to-white space-y-3" style="height: 620px;">
                   <div class="message bot bg-white border border-gray-200 rounded-lg p-3 max-w-[90%] shadow-sm">
                     <p class="text-sm text-gray-700">${t.welcomeMessage}</p>
                   </div>
@@ -638,21 +658,6 @@ window.generatePageContent = function (page, lang = 'en') {
                     </button>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- Unified Search Interface (Moved to bottom, width matches the two blocks above) -->
-            <div class="bg-white rounded-lg p-6 shadow-lg">
-              <div class="flex flex-col sm:flex-row gap-3 max-w-4xl mx-auto">
-                <input id="universal-search" 
-                       type="text" 
-                       placeholder="${t.unifiedSearchPlaceholder}" 
-                       class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base">
-                
-                <button id="search-button" 
-                        class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 font-medium">
-                  ${t.search}
-                </button>
               </div>
             </div>
           </section>
